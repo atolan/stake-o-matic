@@ -61,9 +61,9 @@ checksum = "250f629c0161ad8107cf89319e990051fae62832fd343083bea452d93e2205fd"
 
 [[package]]
 name = "ansi_term"
-version = "0.11.0"
+version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee49baf6cb617b853aa8d93bf420db2383fab46d314482ca2803b40d5fde979b"
+checksum = "d52a9bb7ec0cf484c551830a7ce27bd20d67eac647e1befb56b0be4ee39a55d2"
 dependencies = [
  "winapi 0.3.9",
 ]
@@ -611,17 +611,39 @@ dependencies = [
 
 [[package]]
 name = "clap"
-version = "2.33.3"
+version = "2.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "37e58ac78573c40708d45522f0d80fa2f01cc4f9b4e2bf749807255454312002"
+checksum = "a0610544180c38b88101fecf2dd634b174a62eef6946f84dfc6a7127512b381c"
 dependencies = [
  "ansi_term",
  "atty",
  "bitflags",
- "strsim",
+ "strsim 0.8.0",
  "textwrap",
  "unicode-width",
  "vec_map",
+]
+
+[[package]]
+name = "clap"
+version = "4.0.26"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2148adefda54e14492fb9bddcc600b4344c5d1a3123bd666dcb939c6f0e0e57e"
+dependencies = [
+ "atty",
+ "bitflags",
+ "clap_lex",
+ "strsim 0.10.0",
+ "termcolor",
+]
+
+[[package]]
+name = "clap_lex"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0d4198f73e42b4936b35b5bb248d81d2b595ecb170da0bac7655c54eedfa8da8"
+dependencies = [
+ "os_str_bytes",
 ]
 
 [[package]]
@@ -2500,6 +2522,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "os_str_bytes"
+version = "6.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7b5bf27447411e9ee3ff51186bf7a08e16c341efdde93f4d823e8844429bed7e"
+
+[[package]]
 name = "ouroboros"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3737,7 +3765,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1ff790bd97dee3be05ec879b176875f0bb0ef0eb62e5e11e6b269a2d7dc8bf10"
 dependencies = [
  "chrono",
- "clap",
+ "clap 2.34.0",
  "rpassword",
  "solana-remote-wallet",
  "solana-sdk",
@@ -3770,7 +3798,7 @@ dependencies = [
  "base64 0.13.0",
  "bincode",
  "bs58 0.3.1",
- "clap",
+ "clap 2.34.0",
  "indicatif 0.15.0",
  "jsonrpc-core",
  "log 0.4.14",
@@ -3924,7 +3952,7 @@ checksum = "45ce6d1994d0bdcb0571eeaad0718c540b89b626c24df2bdf6987f80837af4c5"
 dependencies = [
  "bincode",
  "byteorder",
- "clap",
+ "clap 2.34.0",
  "log 0.4.14",
  "serde",
  "serde_derive",
@@ -3943,7 +3971,7 @@ dependencies = [
 name = "solana-foundation-delegation-program-cli"
 version = "1.0.5"
 dependencies = [
- "clap",
+ "clap 4.0.26",
  "solana-account-decoder",
  "solana-clap-utils",
  "solana-cli-config",
@@ -4018,7 +4046,7 @@ checksum = "6bd074ef3382f9d83dbf5db936fbfd9d5ef78cf2a598ac54dc993c98d678ca1c"
 dependencies = [
  "bincode",
  "bv",
- "clap",
+ "clap 2.34.0",
  "flate2",
  "indexmap",
  "itertools 0.9.0",
@@ -4160,7 +4188,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2be3ee1237d9013cbd11f0d0af69a4473c703b700165e6c39b49cf0c0554d6f9"
 dependencies = [
  "bincode",
- "clap",
+ "clap 2.34.0",
  "log 0.4.14",
  "nix",
  "rand 0.7.3",
@@ -4490,7 +4518,7 @@ dependencies = [
  "bincode",
  "borsh 0.9.0",
  "bs58 0.4.0",
- "clap",
+ "clap 4.0.26",
  "indicatif 0.16.2",
  "log 0.4.14",
  "regex",
@@ -4607,7 +4635,7 @@ version = "1.7.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "da0ba5f0bd21d5142c9b9237f807a28856cd00417233013a8d664bf659f11280"
 dependencies = [
- "clap",
+ "clap 2.34.0",
  "libc",
  "log 0.4.14",
  "nix",
@@ -4652,7 +4680,7 @@ dependencies = [
  "base64 0.12.3",
  "bincode",
  "chrono",
- "clap",
+ "clap 2.34.0",
  "console 0.14.1",
  "core_affinity",
  "fd-lock",
@@ -4896,6 +4924,12 @@ name = "strsim"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ea5119cdb4c55b55d432abb513a0429384878c15dde60cc77b1c99de1a95a6a"
+
+[[package]]
+name = "strsim"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623"
 
 [[package]]
 name = "subtle"
